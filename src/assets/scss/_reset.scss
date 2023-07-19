@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ol, ul {
+	list-style: none;
+  // padding-left: 0px !important;
+  // margin-bottom: 0px !important;
+}
+a {
+  text-decoration-line: none !important;
+  display: block;
+  line-height: 0px;
+}
+input {
+  box-sizing: border-box;
+}
+form {
+  box-sizing: unset;
+}
+button {
+  cursor: pointer;
+}

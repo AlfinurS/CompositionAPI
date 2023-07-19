@@ -1,0 +1,48 @@
+<template>
+  <iconsWrapper
+    :width="width"
+    :height="height"
+    :viewBox="viewBox"
+    style=""
+    fill="none"
+  >
+    <path
+      d="M15.5 4.6875C12.9112 4.6875 10.8125 6.78617 10.8125 9.375C10.8125 11.9638 12.9112 14.0625 15.5 14.0625C18.0888 14.0625 20.1875 11.9638 20.1875 9.375C20.1875 6.78617 18.0888 4.6875 15.5 4.6875Z"
+      fill="#1D1D1D"
+    />
+    <path
+      d="M10.5 16.5625C7.91116 16.5625 5.8125 18.6612 5.8125 21.25V22.7354C5.8125 23.6769 6.49485 24.4797 7.42409 24.6314C12.7726 25.5046 18.2274 25.5046 23.5759 24.6314C24.5051 24.4797 25.1875 23.6769 25.1875 22.7354V21.25C25.1875 18.6612 23.0888 16.5625 20.5 16.5625H20.0739C19.8433 16.5625 19.6141 16.599 19.3949 16.6706L18.313 17.0238C16.4852 17.6207 14.5148 17.6207 12.687 17.0238L11.6051 16.6706C11.3859 16.599 11.1567 16.5625 10.9261 16.5625H10.5Z"
+      fill="#1D1D1D"
+    />
+  </iconsWrapper>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import iconsWrapper from "@/components/icons/iconsWrapper.vue";
+
+export default defineComponent({
+  name: "iconProfile",
+  components: {
+    iconsWrapper,
+  },
+  props: {
+    iconColor: {
+      type: String,
+      default: "currentColor",
+    },
+    width: {
+      type: [Number, String],
+      default: 30,
+    },
+    height: {
+      type: [Number, String],
+      default: 30,
+    },
+    viewBox: {
+      type: String,
+      default: "0 0 30 30",
+    },
+  },
+});
+</script>

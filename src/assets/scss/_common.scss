@@ -1,0 +1,33 @@
+* {
+  font-family: 'Lato', sans-serif;
+}
+body {
+  background-color: $grey-bg-color;
+}
+.layout {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  padding-left: 25px;
+  padding-right: 25px;
+  box-sizing: border-box;
+}
+.compensator {
+  height: 80px;
+}
+.list__btn:hover {
+  opacity: 0.7;
+}
+.primary-btn {
+  background-color: $white-color;
+  color: $graphite-color;
+}
+.violet-btn {
+  color:$white-color;
+  background-color: $violet-color;
+}
+::placeholder {
+  color: $grey-color;
+  font-size: 17px;
+}
