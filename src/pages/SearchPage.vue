@@ -3,19 +3,19 @@
     <h2 class="page__title">Персонажи</h2>
     <InputComponent
       @onInput="setSearch"
-      :dataProps="search"
+      :dataProps="form.search"
       icon="iconSearch"
       placeholder="Поиск"
     />
     <div class="page__text-wrapp">
-      <p class="page__text" v-if="data.results.length > 0">
-        {{ data.info.count }} персонажей
+      <p class="page__text" v-if="form.data.results.length > 0">
+        {{ form.data.info.count }} персонажей
       </p>
     </div>
     <div class="page__text-wrapp">
       <span
         class="page__text page__text-notFound"
-        v-if="data.results.length === 0"
+        v-if="form.data.results.length === 0"
       >
         Не удалось найти персонажей с таким именем
       </span>
@@ -23,7 +23,7 @@
     <div class="page__list-wrapper">
       <div class="page__list">
         <div
-          v-for="character in data.results"
+          v-for="character in form.data.results"
           :key="character.id"
           class="page__item"
         >
@@ -40,13 +40,13 @@
       </div>
       <ButtonComponent
         class="page__button"
-        v-if="data.info.next"
+        v-if="form.data.info.next"
         @onClick="loadCharacters"
         iconRight="iconArrow"
         text="Показать еще"
       ></ButtonComponent>
-      <div class="page__block-bottom-compensator" v-if="search"></div>
-      <div class="page__block-bottom" v-if="search">
+      <div class="page__block-bottom-compensator" v-if="form.search"></div>
+      <div class="page__block-bottom" v-if="form.search">
         <ButtonComponent
           class="page__button-bottom"
           @onClick="clearSearch"
@@ -107,7 +107,7 @@ export default defineComponent({
         .get(url, { params })
         .then(({ data }: { data: responseListType }) => {
           form.data.info = data.info;
-          data.results.push(...data.results);
+          form.data.results.push(...data.results);
         })
         .catch(() => {
           form.data = initData();
@@ -151,6 +151,7 @@ export default defineComponent({
       clearSearch,
       getImage,
       showNotice,
+      loadCharacters,
     };
   },
 });

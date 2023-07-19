@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, watch, ref } from "vue";
 import iconSearch from "@/components/icons/iconSearch.vue";
 
 export default defineComponent({
@@ -40,25 +40,30 @@ export default defineComponent({
       default: "text",
     },
   },
-  data() {
-    return {
-      data: this.dataProps,
+
+  setup(props, { emit }) {
+    const data = ref(props.dataProps);
+    const onInput = (): void => {
+      emit("onInput", data.value);
     };
-  },
-  methods: {
-    onInput(): void {
-      this.$emit("onInput", this.data);
-    },
 
-    onChange(): void {
-      this.$emit("onChange", this.data);
-    },
-  },
+    const onChange = (): void => {
+      emit("onChange", data.value);
+    };
 
-  watch: {
-    dataProps(newValue) {
-      this.data = newValue;
-    },
+    watch(
+      () => props.dataProps,
+      (newValue) => {
+        data.value = newValue;
+      }
+    );
+
+    return {
+      data,
+      watch,
+      onChange,
+      onInput,
+    };
   },
 });
 </script>

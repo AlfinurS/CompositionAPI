@@ -49,10 +49,14 @@ export default defineComponent({
     },
   },
 
-  methods: {
-    onClick(): void {
-      this.$emit("onClick");
-    },
+  setup(props, { emit }) {
+    const onClick = (): void => {
+      emit("onClick");
+    };
+
+    return {
+      onClick,
+    };
   },
 });
 </script>
